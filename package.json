@@ -1,0 +1,35 @@
+{
+  "name": "@bezuidenhout/node-red-contrib-pimoroni-weatherhat",
+  "version": "0.1.0",
+  "description": "Interface for the Pimoroni Weather HAT",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "nodes": {
+      "weather": "src/weather.js"
+    }
+  },
+  "keywords": [
+    "node-red",
+    "node-red-contrib",
+    "Pimoroni",
+    "rpi",
+    "raspberry",
+    "wind",
+    "rain"
+  ],
+  "author": "Marius Bezuidenhout",
+  "license": "MIT",
+  "dependencies": {
+    "@bezuidenhout/pimoroni-weatherhat": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbezuidenhout/node-red-contrib-pimoroni-weatherhat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mbezuidenhout/node-red-contrib-pimoroni-weatherhat/issues"
+  }
+}

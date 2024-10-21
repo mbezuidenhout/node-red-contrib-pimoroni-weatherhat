@@ -1,0 +1,49 @@
+<script type="text/html" data-template-name="weatherhat">
+  <div class="form-row">
+      <label for="node-input-busno"><i class="fa fa-random"></i> Bus #</label>
+      /dev/i2c-<input id="node-input-busno" class="I2C-in-address" placeholder="[msg.bus]" min=0 max=7 style="width:40px; height:16px;">
+  </div>
+
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" />
+  </div>
+
+  <div class="form-row">
+      <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+      <input type="text" id="node-input-topic">
+  </div>
+
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType('weatherhat',{
+        category: 'weather',
+        color: '#E35253',
+        defaults: {
+            name:  {value: "", required: false},
+            busno: {value: "1"},
+            topic: {value: 'weather', required: false},
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-cloud",
+        label: function() {
+            return this.name||"weatherhat";
+        },
+        oneditprepare: function() {
+            if (this.busno === undefined) {
+                $("#node-input-busno").val(1);
+            }
+            $("#node-input-busno").spinner({
+                min:0,
+                max:7
+            });
+        },
+	    outputLabels: ["Sensor reads"],
+	    inputLabels: ["Trigger"]
+    });
+</script>
+
+<script type="text/html" data-help-name="weather">
+    <p>Read the wind speed, direction and amount of rain from the Pimoroni Weather HAT</p>
+</script>
